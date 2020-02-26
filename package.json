@@ -1,0 +1,26 @@
+{
+  "name": "tinit",
+  "version": "1.0.0",
+  "description": "A tiny, standalone, Typescript node module generator",
+  "main": "index.js",
+  "scripts": {
+    "test": "test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daleblackwood/tinit.git"
+  },
+  "keywords": [
+    "module",
+    "generator",
+    "typescript",
+    "node",
+    "npx"
+  ],
+  "author": "Dale Blackwood",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/daleblackwood/tinit/issues"
+  },
+  "homepage": "https://github.com/daleblackwood/tinit#readme"
+}
