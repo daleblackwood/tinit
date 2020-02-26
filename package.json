@@ -1,11 +1,13 @@
 {
   "name": "tinit",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A tiny, standalone, Typescript node module generator",
-  "main": "index.js",
+  "main": "./index.js",
   "bin": "./index.js",
   "scripts": {
-    "start": "node index"
+    "start": "node ./",
+    "build": "node ./",
+    "tinit": "node ./"
   },
   "repository": {
     "type": "git",
