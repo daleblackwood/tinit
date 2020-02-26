@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "test.js",
-    "start": "index.js",
-    "build": "tsc -b"
+    "test": "node test",
+    "start": "node indeex",
+    "build": "tsc -b",
+    "watch": "tsc -w"
   },
   "author": "Unknown",
   "license": "MIT"

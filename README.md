@@ -23,8 +23,9 @@ Once complete, you'll have a folder with:
 
 ### Project Commands
 Once you're set up, you can use the following commands to compile and run your project.
-- `npm build` - an alias for `tsc -b`
 - `tsc -b` - Compiles your module through tsc into npm-ready javascript and type definitions
 - `tsc -w` - Compiles your module and watches for changes
-- `npm run test` - Runs the inbuilt test module
+- `npm run build` - an alias for `tsc -b`
+- `npm run watch` - an alias for `tsc -w`
+- `npm test` - Runs the inbuilt test module
 - `npm start` - Runs your module, if it's runnable
