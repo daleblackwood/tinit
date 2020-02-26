@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A tiny, standalone, Typescript node module generator",
   "main": "index.js",
+  "bin": "./index.js",
   "scripts": {
     "test": "test.js"
   },
