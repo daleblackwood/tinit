@@ -17,12 +17,17 @@ async function run() {
 }
 
 async function setupProject() {
-  const projectPath = await requireFolder(project.path);
-  await copyFolder(__dirname + "/template", project.path, false);
-
+  const projectPath = path.resolve(project.path);
   const packagePath = projectPath + "/package.json";
-  const packageStr = await readText(packagePath);
-  const packageJson = JSON.parse(packageStr);
+  const templatePath = __dirname + "/template";
+  let packageJson = await readJSON(templatePath + "/package.json");
+  try {
+    const existingJson = await readJSON(packagePath);
+    packageJson = {
+      ...packageJson,
+      existingJson
+    };
+  } catch (e) {}
 
   project = {
     ...packageJson,
@@ -33,7 +38,11 @@ async function setupProject() {
   project.author = await requireInput("Enter an author", stringParser, project.author);
   project.license = await requireInput("Enter a license", stringParser, project.license);
 
-  await writeText(packagePath, JSON.stringify(project, null, 2));
+  await requireFolder(project.path);
+  await copyFolder(templatePath, project.path, false);
+
+  delete project.path;
+  await writeJSON(packagePath, project);
 }
 
 async function requireFolder(folderPath) {
@@ -117,11 +126,14 @@ async function copyFolder(fromPath, toPath, allowOverwrite) {
   }
 }
 
-async function readText(filePath) {
-  return await promisify(fs.readFile)(filePath, { encoding: "utf-8" });
+async function readJSON(filePath) {
+  const text = await promisify(fs.readFile)(filePath, { encoding: "utf-8" });
+  const data = JSON.parse(text);
+  return data;
 }
 
-async function writeText(filePath, text) {
+async function writeJSON(filePath, data) {
+  const text = JSON.stringify(data, null, '  ');
   await requireFolder(path.dirname(filePath));
   await promisify(fs.writeFile)(filePath, text, { encoding: "utf-8" });
 }

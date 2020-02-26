@@ -6,7 +6,7 @@ With this tool, you can generate the boilerplate for small Typescript modules, r
 
 ### Requirements
 - A globally installed Typescript compiler
-- NodeJS 10+ with NPM
+- NodeJS 12+ with NPM
 
 ### Running with NPX (Recommended)
 Go to your desired project folder's parent directory and type:
@@ -25,7 +25,5 @@ Once complete, you'll have a folder with:
 Once you're set up, you can use the following commands to compile and run your project.
 - `tsc -b` - Compiles your module through tsc into npm-ready javascript and type definitions
 - `tsc -w` - Compiles your module and watches for changes
-- `npm run build` - an alias for `tsc -b`
-- `npm run watch` - an alias for `tsc -w`
 - `npm test` - Runs the inbuilt test module
-- `npm start` - Runs your module, if it's runnable
+- `npm start` - Runs your module, once it's built

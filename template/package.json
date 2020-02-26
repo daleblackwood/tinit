@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "node test",
-    "start": "node indeex",
-    "build": "tsc -b",
-    "watch": "tsc -w"
+    "start": "node index"
   },
   "author": "Unknown",
   "license": "MIT"
