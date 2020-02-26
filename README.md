@@ -1,6 +1,6 @@
 # tinit
 
-**tinit** is a tiny typescript module standalone npm module factory designed for use with **npx**. Consider it an alternative to **npm init**.
+**tinit** is a tiny Typescript standalone npm module factory designed for use with **npx**. Consider it an alternative to **npm init**.
 
 With this tool, you can generate the boilerplate for small Typescript modules, ready to emit Javascript compatible with npm.
 
