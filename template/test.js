@@ -1,36 +1,37 @@
 const assert = require("assert");
 
-// write simple tests here, for more depth grab Jest
-async function test() {
-  await describe("one plus two is three", async () => {
-    assert(2 + 1 === 3);
-  });
+/*------------------/
+     START TESTS
+/------------------*/
+// write simple tests here, for more depth grab something like Jest
 
-  await describe("this is global", async () => {
-    assert(this === global);
-  });
+test("one plus two is three", async () => {
+  assert(2 + 1 === 3);
+});
+
+test("this fails", () => {
+  throw new Error("deliberate error");
+});
+
+/*------------------/
+     END TESTS
+/------------------*/
+
+/**
+ * @param text printed description of test
+ * @param func a function / promise / async that throws upon test fail
+ */
+function test(text, func) {
+  (test.all = test.all || []).push({ i: test.all.length, text, func });
 }
-
-let count = 0;
-
-async function describe(description, testPromise) {
-  process.stdout.write(" > " + (++count) + ". " + description + "...");
-  try {
-    await testPromise();
-    process.stdout.write("PASSED\n");
-  } catch(e) {
-    process.stdout.write("FAILED\n");
-    throw e;
-  };
-}
-
-if (module === require.main) {
-  (async () => {
-    try { await test(); } catch (e) {
-      console.error("FAIL: " + (e && e.stack || e || "unknown error"));
-      process.exit(1);
-    }
-    console.log("PASS: " + count + " tests passed");
-    process.exit(0);
-  })();
-}
+(async () => { // autorun
+  const log = (msg, c) => process.stdout.write((["\033[32m", "\033[31m"][c] || "")+msg+"\033[0m");
+  log("tinit running " + test.all.length + " tests...\n");
+  while ((t = test.all.shift())) {
+    log(" > " + (t.i+1) + ". " + t.text + "...");
+    try { await t.func(); } catch (e) {
+      return log("FAIL\n" + (e && e.stack || e) + "\n", 1);
+    };
+    log("PASS\n", 0);
+  }
+})();
