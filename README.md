@@ -38,7 +38,7 @@ Sometimes you may find yourself writing a small tool for node applications, in
 Typescript, that isn't large enough to justify the need for a build system and 
 test framework. This is for then.
 - tinit should run without install
-- tinit should generate the minimum output for a tsc compatible projects
+- tinit should generate the minimum output for a tsc build
 - tinit should be ran only once, left behind forever
 - tinit should not be a dependency or cause dependencies
 - tinit should allow for testing
