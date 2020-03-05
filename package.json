@@ -1,6 +1,6 @@
 {
   "name": "tinit",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "A tiny, standalone, Typescript node module generator",
   "main": "./index.js",
   "bin": "./index.js",
