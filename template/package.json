@@ -8,5 +8,6 @@
     "start": "node index"
   },
   "author": "Unknown",
-  "license": "MIT"
+  "license": "MIT",
+  "generator": "http://npmjs.com/tinit"
 }
