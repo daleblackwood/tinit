@@ -41,5 +41,5 @@ test framework. This is for then.
 - tinit should **run without install**
 - tinit should generate the **minimum output for a tsc build**
 - tinit should be **ran only once** per module, left behind forever
-- tinit should **not be a dependency** or cause dependencies
-- tinit should **allow for testing**
+- tinit should **not cause dependencies** or be a dependency
+- tinit should provide **testing by example**
