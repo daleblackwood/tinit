@@ -12,7 +12,8 @@ With this tool, you can generate the minimum boilerplate for small Typescript
 
 ### Running with NPX (Recommended)
 Go to your desired project folder's parent directory and type:
-`npx tinit [modulename]`
+
+```npx tinit [modulename]```
 
 When you run the wizard, you'll be asked a few questions, like with npm or 
 yarn, including project name, description, author and license.
