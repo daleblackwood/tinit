@@ -1,6 +1,6 @@
 {
   "name": "tinit",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "A tiny, standalone, Typescript node module generator",
   "main": "./index.js",
   "bin": "./index.js",
@@ -17,8 +17,12 @@
     "module",
     "generator",
     "typescript",
+    "tsc",
+    "boilerplate",
     "node",
-    "npx"
+    "npx",
+    "command-line",
+    "cli"
   ],
   "author": "Dale Blackwood",
   "license": "MIT",
