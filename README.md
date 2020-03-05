@@ -1,18 +1,21 @@
 # tinit
 
-**tinit** is a tiny Typescript standalone npm module factory designed for use with **npx**. Consider it an alternative to **npm init**.
+**tinit** is a tiny Typescript standalone npm module factory designed for use 
+with **npx**. Consider it an alternative to **npm init**.
 
-With this tool, you can generate the boilerplate for small Typescript modules, ready to emit Javascript compatible with npm.
+With this tool, you can generate the minimum boilerplate for small Typescript
+ modules, ready to emit Javascript compatible with npm.
 
 ### Requirements
 - A globally installed Typescript compiler
-- NodeJS 12+ with NPM
+- NodeJS 10+ with NPM
 
 ### Running with NPX (Recommended)
 Go to your desired project folder's parent directory and type:
 `npx tinit [modulename]`
 
-When you run the wizard, you'll be asked a few questions, like with npm or yarn, including project name, description, author and license.
+When you run the wizard, you'll be asked a few questions, like with npm or 
+yarn, including project name, description, author and license.
 
 Once complete, you'll have a folder with:
 - **index.js** - the module entry point, set to import from `./lib/`
@@ -22,8 +25,15 @@ Once complete, you'll have a folder with:
 - **src/index.ts** - your module's entry point, write your module here
 
 ### Project Commands
-Once you're set up, you can use the following commands to compile and run your project.
-- `tsc -b` - Compiles your module through tsc into npm-ready javascript and type definitions
+Once you're set up, you can use the following commands to compile and run your
+ project.
+- `tsc -b` - Compiles your module through tsc into npm-ready javascript and 
+  type definitions
 - `tsc -w` - Compiles your module and watches for changes
 - `npm test` - Runs the inbuilt test module
 - `npm start` - Runs your module, once it's built
+
+### Goals
+Sometimes you may find yourself writing a small tool for node applications, in
+Typescript, that isn't large enough to justify the need for a build and test
+system dependencies. This is for that situation.
