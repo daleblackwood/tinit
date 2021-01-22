@@ -4,13 +4,13 @@
 
 const assert = require("assert");
 
-test("one plus two is three", async () => {
-  assert(2 + 1 === 3);
+test("this test passes", async () => {
+  assert(true === true, "true is true");
 });
 
-test("this fails", () => {
-  throw new Error("deliberate error");
-})
+test("this test fails", async () => {
+  assert(true === false, "true isn't false");
+});
 
 /*------------------/
      END TESTS
@@ -21,17 +21,17 @@ test("this fails", () => {
  * @param text printed description of test
  * @param func a function / promise / async that throws upon test fail
  */
-function test(text, func) {
-  (test.all = test.all || []).push({ i: test.all.length, text, func });
-}
+function test(text, func) { (test.all = test.all || []).push({ i: test.all.length, text, func }); }
 (async () => { // autorun
   const log = (msg, c) => process.stdout.write((["\033[32m", "\033[31m"][c] || "")+msg+"\033[0m");
   log("tinit running " + test.all.length + " tests...\n");
   while ((t = test.all.shift())) {
     log(" > " + (t.i+1) + ". " + t.text + "...");
     try { await t.func(); } catch (e) {
-      return log("FAIL\n" + (e && e.stack || e) + "\n", 1);
+      log("FAIL\n" + (e && e.stack || e) + "\n", 1);
+      process.exit(1);
     };
     log("PASS\n", 0);
   }
+  process.exit(0);
 })();
